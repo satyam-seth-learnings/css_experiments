@@ -1,0 +1,54 @@
+@import "themes";
+@import "mixins";
+@import "functions";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  @include themify($themes) {
+    background-color: themed("bodyBackgroundColor");
+  }
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  @include themify($themes) {
+    color: themed("textColor");
+    background-color: themed("appBackgroundColor");
+  }
+
+  .title {
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
+
+  .button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 32px;
+    display: inline-block;
+    transition: color 0.1s, border-color 0.1s, background-color 0.1s;
+
+    @include themify($themes) {
+      border: themed("buttonBorder");
+      color: themed("buttonTextColor");
+      border-color: themed("buttonTextColor");
+      background-color: themed("buttonColor");
+      text-transform: themed("buttonTextTransform");
+
+      &:hover {
+        color: themed("buttonTextHoverColor");
+        border-color: themed("buttonTextHoverColor");
+        background-color: themed("buttonHoverColor");
+      }
+    }
+  }
+}
