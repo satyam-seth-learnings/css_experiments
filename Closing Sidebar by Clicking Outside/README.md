@@ -7,3 +7,7 @@
 ### Hide Sidebar
 
 ![image](https://user-images.githubusercontent.com/63374020/154359961-ab0882c1-6945-41b7-adcf-58b1a48be269.png)
+
+### Demo
+
+https://user-images.githubusercontent.com/63374020/154859717-f1b6c077-a7c1-44b0-9abc-4591f985ffe5.mp4
