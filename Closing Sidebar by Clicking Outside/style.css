@@ -21,22 +21,31 @@ section.plans {
 .plan-details-container {
   position: fixed;
   top: 0%;
-  right: -80%;
-  width: 40%;
+  left: 100%;
+  width: 100%;
   height: 100%;
-  padding: 10px;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+}
+
+.empty {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.plan-details {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  padding: 20px;
   background-color: rgb(127, 184, 70);
 }
 
-.plan-details-container h1 {
+.plan-details h1 {
   font-size: 30px;
   color: rgb(99, 24, 122);
 }
 
-.plan-details-container p {
+.plan-details p {
   font-size: 20px;
   color: rgb(59, 8, 8);
 }
@@ -71,5 +80,5 @@ section.plans {
 }
 
 .active {
-  right: 0%;
+  left: 0%;
 }
