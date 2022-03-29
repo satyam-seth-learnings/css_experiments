@@ -18,8 +18,9 @@ main > nav {
 
 /* Sidebar Navigation */
 .section-nav {
-  padding-left: 0;
-  border-left: 1px solid #efefef;
+  padding-left: 0px;
+  padding-right: 20px;
+  border-right: 1px solid #efefef;
 }
 
 .section-nav a {
@@ -68,7 +69,8 @@ h1 {
 /** page layout **/
 main {
   display: grid;
-  grid-template-columns: 1fr 15em;
+  gap: 20px;
+  grid-template-columns: auto 1fr auto;
   max-width: 100em;
   width: 90%;
   margin: 0 auto;
@@ -77,4 +79,19 @@ main {
 /** enlarge the sections for this demo, so that we have a long scrollable page **/
 section {
   padding-bottom: 20rem;
+}
+
+main > .faq {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  padding: 0px 50px 20px 50px;
+  border: 1px solid rgba(13, 166, 236);
+  border-radius: 25%;
+  background-color: rgba(13, 166, 236, 0.2);
+}
+
+.faq > ul > li > a {
+  text-decoration: none;
+  color: cornflowerblue;
 }
