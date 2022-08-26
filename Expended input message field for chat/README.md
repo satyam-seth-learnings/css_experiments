@@ -10,12 +10,13 @@
   data-testid="conversation-compose-box-input"
   data-tab="10"
   data-lexical-editor="true"
-  style="user-select: text; white-space: pre-wrap; word-break: break-word;">
-    <p class="selectable-text copyable-text" dir="ltr">
-        <span class="selectable-text copyable-text" data-lexical-text="true">
-        test message
-        </span>
-    </p>
+  style="user-select: text; white-space: pre-wrap; word-break: break-word;"
+>
+  <p class="selectable-text copyable-text" dir="ltr">
+    <span class="selectable-text copyable-text" data-lexical-text="true">
+      test message
+    </span>
+  </p>
 </div>
 ```
 
@@ -32,10 +33,11 @@
   spellcheck="true"
   id="T2Ybvb0"
   g_editable="true"
-  contenteditable="true">
-    <br />
+  contenteditable="true"
+>
+  <br />
 </div>
 ```
 
 - Reference
-[Stackoverflow](https://stackoverflow.com/questions/56088164/how-to-make-an-expandable-input-form-for-chat)
+  [Stackoverflow](https://stackoverflow.com/questions/56088164/how-to-make-an-expandable-input-form-for-chat)
