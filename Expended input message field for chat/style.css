@@ -9,6 +9,7 @@ body {
   height: 100vh;
   color: white;
   background-color: black;
+  font-style: "Roboto", sans-serif;
 }
 
 main {
@@ -37,12 +38,9 @@ img.avatar {
   font-size: 1.5rem;
 }
 
-section.chat-section {
+section.chat {
   overflow-y: auto;
-}
-
-section.chat-section::-webkit-scrollbar {
-  display: none;
+  scroll-behavior: smooth;
 }
 
 .chat-container {
@@ -71,6 +69,14 @@ section.chat-section::-webkit-scrollbar {
   cursor: pointer;
   color: red;
   display: inline-block;
+}
+
+.chat-container p .message-timing {
+  float: right;
+  opacity: 0.8;
+  font-weight: 400;
+  font-size: 0.6rem;
+  margin: 0.6rem 0 0 0.5rem;
 }
 
 .sent-message {
@@ -116,16 +122,16 @@ form {
   color: #8e8e93;
 }
 
-.message-input::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-.message-input::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   border-radius: 0.25rem;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.message-input::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
   background-color: #d9d9d9;
 }

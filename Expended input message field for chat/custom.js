@@ -1,7 +1,21 @@
 function appendMessage(message, type) {
+    const chatContainer = document.createElement('div');
+    chatContainer.classList.add('chat-container');
+
     const messageElement = document.createElement('p');
     messageElement.innerText = message;
     messageElement.classList.add(`${type === 'sent' ? 'sent' : 'received'}-message`);
+
+    const messageTiming = document.createElement('span');
+    messageTiming.classList.add('message-timing');
+    messageTiming.innerHTML = new Date().toLocaleTimeString(
+        undefined,
+        {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        }
+    );
 
     const charLimit = 100; // if message length is grater than charLimit then show read more button
 
@@ -32,7 +46,9 @@ function appendMessage(message, type) {
         messageElement.innerHTML = message;
     }
 
-    document.querySelector('.chat-container').appendChild(messageElement);
+    messageElement.appendChild(messageTiming);
+    chatContainer.appendChild(messageElement);
+    document.querySelector('section.chat').appendChild(chatContainer);
 }
 
 function handleSubmit() {
@@ -45,7 +61,21 @@ function handleSubmit() {
 
     setTimeout(() => {
         appendMessage(message, 'received');
+        scrollToNewMessageHandler();
     }, 1500);
+}
+
+// scroll to new message when chatting space is full
+function scrollToNewMessageHandler() {
+    const chatSection = document.querySelector('section.chat');
+
+    //  if chatting space scroll height is grater chatting space client height
+    //  in this case newly appended message is hidden because of overflow hidden
+    //  we have to scroll up by (chattingSpace.scrollHeight - chattingSpace.clientHeight)
+    //  to show the new message
+    if (chatSection.scrollHeight > chatSection.clientHeight) {
+        chatSection.scrollBy(0, chatSection.scrollHeight - chatSection.clientHeight);
+    }
 }
 
 function disableSendButton() {
@@ -66,6 +96,7 @@ window.onload = () => {
         if (e.target.innerText.trim() !== '') {
             handleSubmit();
             disableSendButton();
+            scrollToNewMessageHandler();
         }
     });
 
@@ -84,6 +115,7 @@ window.onload = () => {
             if (e.target.innerText.trim() !== '') {
                 handleSubmit();
                 disableSendButton();
+                scrollToNewMessageHandler();
             }
         }
     });
