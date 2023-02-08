@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  width: 100vw;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  color: white;
+  background-color: black;
+}
+
+.intro {
+  max-width: 68.125rem;
+  width: 100%;
+  height: 100%;
+  margin-inline: auto;
+  max-width: 68.125rem;
+  padding-inline: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  padding-inline: 1.5rem;
+  justify-content: center;
+}
+.intro h2 {
+  max-width: 25ch;
+  font-family: "DM Serif Display";
+  font-weight: 400;
+  font-size: clamp(1.875rem, 1.1107rem + 3.2609vw, 2.625rem);
+  line-height: 2.5625rem;
+}
+.intro p {
+  color: #ffffff;
+  font-family: "DM Sans";
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 160%;
+}
+@media (min-width: 376px) and (max-width: 931px) {
+  .intro {
+    padding-inline: 3.125rem;
+  }
+  .intro h2 {
+    font-size: clamp(2.625rem, 1.8186rem + 1.7341vw, 3rem);
+    line-height: 3.625rem;
+  }
+  .intro p {
+    font-size: 1.25rem;
+    line-height: 170%;
+  }
+}
+@media (min-width: 932px) {
+  .intro {
+    margin-inline: auto;
+  }
+  .intro h2 {
+    font-size: 3rem;
+    line-height: 4.125rem;
+  }
+  .intro p {
+    font-size: 1.5rem;
+    line-height: 2.125rem;
+  }
+}/*# sourceMappingURL=style.css.map */
