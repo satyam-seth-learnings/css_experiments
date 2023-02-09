@@ -31,12 +31,14 @@ body {
   flex-direction: column;
   padding-inline: 1.5rem;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .intro h2 {
   max-width: 25ch;
   font-family: "DM Serif Display";
   font-weight: 400;
-  font-size: clamp(1.875rem, 1.1107rem + 3.2609vw, 2.625rem);
+  font-size: 1.875rem;
   line-height: 2.5625rem;
 }
 .intro p {
@@ -51,11 +53,11 @@ body {
     padding-inline: 3.125rem;
   }
   .intro h2 {
-    font-size: clamp(2.625rem, 1.8186rem + 1.7341vw, 3rem);
+    font-size: clamp(1.875rem, 1.1128rem + 3.2432vw, 3rem);
     line-height: 3.625rem;
   }
   .intro p {
-    font-size: 1.25rem;
+    font-size: clamp(0.875rem, 0.4516rem + 1.8018vw, 1.5rem);
     line-height: 170%;
   }
 }
