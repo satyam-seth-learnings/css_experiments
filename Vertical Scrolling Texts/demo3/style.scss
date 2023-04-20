@@ -1,0 +1,50 @@
+@use "sass:math";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+$item-count: 10;
+
+@keyframes scrollUp {
+    @for $i from 0 through ($item-count - 1) {
+        #{$i * math.div(100, $item-count) * 1%} {
+            transform: translateY(calc(-100% / $item-count) * $i);
+        }
+    }
+
+    100% {
+        transform: translateY(calc(-100% / $item-count) * ($item-count - 1));
+    }
+}
+
+
+
+.container {
+    height: 2.25rem;
+    overflow: hidden;
+    background-color: red;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+}
+
+.text-roll {
+    animation: scrollUp ($item-count) *2s infinite ease;
+    animation-delay: 2s;
+
+    li {
+        color: white;
+        font-size: 2rem;
+        list-style: none;
+    }
+}
