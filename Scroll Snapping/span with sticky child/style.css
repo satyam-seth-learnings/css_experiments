@@ -11,8 +11,9 @@ body {
 .container {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: proximity;
-  scroll-snap-type: y proximity;
+  position: relative;
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
   scroll-snap-points-y: repeat(100vh);
 }
 
@@ -22,25 +23,36 @@ section {
   display: grid;
   place-items: center;
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
   border-bottom: 1px solid white;
 }
 section:nth-of-type(1) {
-  background-color: coral;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: sticky;
+  background-color: rgba(12, 12, 12, 0.671);
+}
+section:nth-of-type(1) h1 {
+  color: white;
 }
 section:nth-of-type(2) {
-  background-color: orange;
+  background-color: coral;
 }
 section:nth-of-type(3) {
-  background-color: goldenrod;
+  background-color: orange;
 }
 section:nth-of-type(4) {
-  background-color: burlywood;
+  background-color: goldenrod;
 }
 section:nth-of-type(5) {
+  background-color: burlywood;
+}
+section:nth-of-type(6) {
   background-color: gray;
 }
 section h1 {
-  color: white;
   text-align: center;
+  color: red;
   font-size: calc(1rem + 3vw);
 }/*# sourceMappingURL=style.css.map */
