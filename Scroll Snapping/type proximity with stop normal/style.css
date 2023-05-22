@@ -11,8 +11,8 @@ body {
 .container {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: mandatory;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: proximity;
+  scroll-snap-type: y proximity;
   scroll-snap-points-y: repeat(100vh);
 }
 
@@ -22,6 +22,7 @@ section {
   display: grid;
   place-items: center;
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
   border-bottom: 1px solid white;
 }
 section:nth-of-type(1) {

@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+  scroll-snap-points-y: repeat(100vh);
+}
+
+section {
+  padding: 1rem;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  border-bottom: 1px solid white;
+}
+section:nth-of-type(1) {
+  background-color: coral;
+}
+section:nth-of-type(2) {
+  background-color: orange;
+}
+section:nth-of-type(3) {
+  background-color: goldenrod;
+}
+section:nth-of-type(4) {
+  background-color: burlywood;
+}
+section:nth-of-type(5) {
+  background-color: gray;
+}
+section h1 {
+  color: white;
+  text-align: center;
+  font-size: calc(1rem + 3vw);
+}/*# sourceMappingURL=style.css.map */
