@@ -1,0 +1,1 @@
+[CSS Tricks Blog](https://css-tricks.com/snippets/css/orientation-lock/)
