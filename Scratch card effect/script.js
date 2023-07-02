@@ -1,4 +1,4 @@
-document.addEventListener('mousemove', function (e) {
+document.addEventListener('pointermove', function (e) {
     const body = document.querySelector('body');
     const bubbles = document.createElement('span');
 
