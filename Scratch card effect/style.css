@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    /* background:
+        repeating-linear-gradient(0deg, #fff 0%, #fff 50%, #000 50%, #000 100%),
+        repeating-linear-gradient(90deg, #fff 0%, #fff 50%, #000 50%, #000 100%);
+    background-size: 30px, 30px;
+    background-blend-mode: difference; */
+    overflow: hidden;
+}
+
+span {
+    display: block;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* background-color: #000; */
+    background: url('./reward.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    pointer-events: none;
+    border-radius: 50%;
+}
