@@ -1,4 +1,4 @@
-document.addEventListener('pointermove', function (e) {
+const pointerHandler = function (e) {
     const body = document.querySelector('body');
     const bubbles = document.createElement('span');
 
@@ -7,4 +7,8 @@ document.addEventListener('pointermove', function (e) {
 
     body.appendChild(bubbles);
 
-})
+}
+
+// document.addEventListener('pointermove', pointerHandler)
+document.addEventListener('mousemove', pointerHandler)
+document.addEventListener('touchmove', pointerHandler)
