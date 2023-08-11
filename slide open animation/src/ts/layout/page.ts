@@ -1,14 +1,18 @@
+import { pageOpenEvent } from "../common/events";
+import { PageConfig } from "./type";
+
 /**
  * 
  * Page 
  * 
  */
 export default class Page {
-    // namespace for generating unique id for page
-    private namespace: string;
+    // page configuration
+    private config: PageConfig;
 
-    constructor(namespace: string) {
-        this.namespace = namespace;
+
+    constructor(config: PageConfig) {
+        this.config = config;
     }
 
     /**
@@ -46,6 +50,9 @@ export default class Page {
         // append content
         contentContainer.appendChild(this.content);
 
+        // append page button
+        contentContainer.appendChild(this.openPageButton);
+
         return contentContainer;
     }
 
@@ -61,7 +68,7 @@ export default class Page {
 
         // add click event listener
         emptyContainer.addEventListener('click', () => {
-            console.log('close current page');
+            console.log(`closing current page - namespace -> ${this.config.namespace}`);
         })
 
         return emptyContainer;
@@ -74,10 +81,31 @@ export default class Page {
      * @returns {HTMLParagraphElement}
      */
     private get content(): HTMLParagraphElement {
-        const content = document.createElement('p');
-        content.className = 'page__content';
-        content.innerText = `Page - ${this.namespace}`;
-        return content;
+        const contentElement = document.createElement('p');
+        contentElement.className = 'page__content';
+        contentElement.innerText = `Page - ${this.config.namespace}`;
+        return contentElement;
+    }
+
+    /**
+     * 
+     * button to open new page
+     * 
+     * @returns {HTMLButtonElement}
+     * 
+     */
+    get openPageButton(): HTMLButtonElement {
+        const button = document.createElement('button');
+        button.className = 'open-page-btn';
+        button.innerText = 'Open New Page';
+
+        // add click event listener
+        button.addEventListener('click', () => {
+            console.log(`opening new page - namespace -> ${this.config.namespace}`);
+            window.dispatchEvent(pageOpenEvent);
+        })
+
+        return button;
     }
 
     /**
@@ -88,7 +116,19 @@ export default class Page {
      * 
      */
     get id(): string {
-        return `page-${this.namespace}`;
+        return `page-${this.config.namespace}`;
+    }
+
+
+    /**
+     * 
+     * querySelect for app
+     * 
+     * @returns {HTMLElement} 
+     * 
+     */
+    get element(): HTMLElement {
+        return document.getElementById(this.id)!;
     }
 
     /**

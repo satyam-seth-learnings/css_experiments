@@ -1,4 +1,11 @@
-export default class App {
+import { pageOpenEvent } from "../common/events";
+
+/**
+ * 
+ * App
+ * 
+ */
+export class App {
     // unique app name 
     private name: string;
 
@@ -17,16 +24,32 @@ export default class App {
         const app = document.createElement('main');
         app.id = this.id;
         app.className = 'app';
+
+        // append page button
+        app.appendChild(this.openPageButton);
+
         return app;
     }
 
     /**
      * 
-     * append app skeleton into dom body
+     * button to open new page
+     * 
+     * @returns {HTMLButtonElement}
      * 
      */
-    build() {
-        document.body.appendChild(this.skeleton)
+    get openPageButton(): HTMLButtonElement {
+        const button = document.createElement('button');
+        button.className = 'open-page-btn';
+        button.innerText = 'Open New Page';
+
+        // add click event listener
+        button.addEventListener('click', () => {
+            console.log(`opening new page - app name -> ${this.name}`);
+            window.dispatchEvent(pageOpenEvent);
+        })
+
+        return button;
     }
 
     /**
@@ -49,5 +72,14 @@ export default class App {
      */
     get element(): HTMLElement {
         return document.getElementById(this.id)!;
+    }
+
+    /**
+     * 
+     * append app skeleton into dom body
+     * 
+     */
+    build() {
+        document.body.appendChild(this.skeleton)
     }
 }
