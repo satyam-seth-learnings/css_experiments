@@ -1,4 +1,4 @@
-import { pageOpenEvent } from "../common/events";
+import { openNewPageEvent } from "../common/events";
 
 /**
  * 
@@ -46,7 +46,7 @@ export class App {
         // add click event listener
         button.addEventListener('click', () => {
             console.log(`opening new page - app name -> ${this.name}`);
-            window.dispatchEvent(pageOpenEvent);
+            window.dispatchEvent(openNewPageEvent);
         })
 
         return button;

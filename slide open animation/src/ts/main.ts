@@ -1,9 +1,10 @@
-import { OPEN_NEW_PAGE_EVENT } from "./common/events";
-import { app } from "./common/instances";
+import { App } from "./app/app";
 import { Utils } from "./common/utils";
+import { OPEN_NEW_PAGE_EVENT } from "./common/events";
 
 window.onload = () => {
     // build app
+    const app = new App('demo');
     app.build();
 
     // Add event to open page

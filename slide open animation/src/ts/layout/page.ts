@@ -1,4 +1,4 @@
-import { pageOpenEvent } from "../common/events";
+import { openNewPageEvent } from "../common/events";
 import { PageConfig } from "./type";
 
 /**
@@ -6,7 +6,7 @@ import { PageConfig } from "./type";
  * Page 
  * 
  */
-export default class Page {
+export class Page {
     // page configuration
     private config: PageConfig;
 
@@ -69,6 +69,7 @@ export default class Page {
         // add click event listener
         emptyContainer.addEventListener('click', () => {
             console.log(`closing current page - namespace -> ${this.config.namespace}`);
+            this.destroy();
         })
 
         return emptyContainer;
@@ -102,7 +103,7 @@ export default class Page {
         // add click event listener
         button.addEventListener('click', () => {
             console.log(`opening new page - namespace -> ${this.config.namespace}`);
-            window.dispatchEvent(pageOpenEvent);
+            window.dispatchEvent(openNewPageEvent);
         })
 
         return button;
@@ -119,7 +120,6 @@ export default class Page {
         return `page-${this.config.namespace}`;
     }
 
-
     /**
      * 
      * querySelect for app
@@ -129,6 +129,15 @@ export default class Page {
      */
     get element(): HTMLElement {
         return document.getElementById(this.id)!;
+    }
+
+    /**
+     * 
+     * Remove page skeleton from dom
+     * 
+     */
+    private destroy(): void {
+        this.element.remove();
     }
 
     /**

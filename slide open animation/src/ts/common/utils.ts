@@ -1,5 +1,10 @@
-import Page from "../layout/page";
+import { Page } from "../layout/page";
 
+/**
+ * 
+ * Utilities
+ * 
+ */
 export class Utils {
     /**
      * 
