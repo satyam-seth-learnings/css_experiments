@@ -45,7 +45,9 @@ export class Page {
      */
     private get contentContainer(): HTMLDivElement {
         const contentContainer = document.createElement('div');
-        contentContainer.className = 'page__content-container';
+
+        // apply slide-in class for opening animation
+        contentContainer.classList.add('page__content-container', 'slide-in');
 
         // append content
         contentContainer.appendChild(this.content);
@@ -69,7 +71,7 @@ export class Page {
         // add click event listener
         emptyContainer.addEventListener('click', () => {
             console.log(`closing current page - namespace -> ${this.config.namespace}`);
-            this.destroy();
+            this.pageCloseHandler();
         })
 
         return emptyContainer;
@@ -137,7 +139,28 @@ export class Page {
      * 
      */
     private destroy(): void {
+        console.log('hello');
         this.element.remove();
+    }
+
+    /**
+     * 
+     * Add slide out animation on content container
+     * And remove page skeleton from dom once animation is completed
+     * 
+     */
+    pageCloseHandler() {
+        // selecting content container
+        const contentContainer = this.element.querySelector('.page__content-container');
+
+        // apply sidle-out class for closing animation
+        contentContainer?.classList.add('slide-out');
+
+        // remove page from dom after slide out animation complete
+        contentContainer?.addEventListener('animationend', () => {
+            console.log('closing animation completed removing page from dom');
+            this.destroy();
+        });
     }
 
     /**
